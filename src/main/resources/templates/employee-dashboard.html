@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Employee Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="container mt-5">
+    <h3 class="text-primary">Welcome, <span th:text="${employee.firstName + ' ' + employee.lastName}">Employee</span>!</h3>
+    
+    <div class="mt-4">
+        <a href="/employee/edit" class="btn btn-warning">Edit Profile</a>
+        <a href="/employee/delete" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete your profile?')">Delete Profile</a>
+        <a href="/logout" class="btn btn-secondary">Logout</a>
+    </div>
+</div>
+</body>
+</html>

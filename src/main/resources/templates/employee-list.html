@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Employee List</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap4.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+</head>
+<body>
+<div class="container mt-4">
+    <h3 class="text-center">All Employees</h3>
+
+    <table id="employeeTable" class="table table-bordered table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>First</th>
+            <th>Middle</th>
+            <th>Last</th>
+            <th>DOB</th>
+            <th>Gender</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Designation</th>
+            <th>Role</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="emp : ${employees}">
+            <td th:text="${emp.id}"></td>
+            <td th:text="${emp.firstName}"></td>
+            <td th:text="${emp.middleName}"></td>
+            <td th:text="${emp.lastName}"></td>
+            <td th:text="${emp.dob}"></td>
+            <td th:text="${emp.gender}"></td>
+            <td th:text="${emp.email}"></td>
+            <td th:text="${emp.phone}"></td>
+            <td th:text="${emp.designation}"></td>
+            <td th:text="${emp.role}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a href="/admin/dashboard" class="btn btn-secondary mt-3">Back to Dashboard</a>
+</div>
+
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#employeeTable').DataTable();
+    });
+</script>
+
+</body>
+</html>
